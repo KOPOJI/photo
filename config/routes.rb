@@ -1,12 +1,12 @@
 Photo::Application.routes.draw do
 
   get 'users', to: 'users#index'
-  get 'users/:id', to: 'users#show', constraints: {id:/\d+/}
-  get 'user/profile', to: 'users#profile'
+  get 'user/:id', to: 'users#show', constraints: {id:/\d+/}
+  match 'user/profile', to: 'users#profile', as: 'profile', via: [:get, :patch]
   mount RailsAdmin::Engine => '/administration', :as => 'rails_admin'
   root 'site#index'
 
-  get '/:action', to: 'site#:action', constraints: {action: /about|blog|gallery|contact/}
+  get '/:action', to: 'site#:action', constraints: {action: /blog|gallery|contact/}
   get '/gallery/:album', to: 'site#gallery', constraints: {album: /[-_a-z\d]+/i}
 
   devise_for :users, path: 'user', path_names: {

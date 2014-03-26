@@ -2,38 +2,36 @@
   <div class="row">
     <div class="main-content">
       <div class="row">
-        <div class="col-2-3">
-          <article>
-            <div class="heading">
-              <h2>Список пользователей</h2>
-            </div>
-            <div class="content">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>Логин</th>
-                  <th>Регистрация</th>
-                  <th>Сообщений</th>
-                  <th>Последний визит</th>
-                  <th>Аватар</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <% @users.each do |user| %>
-                      <td><%= user.username %></td>
-                      <td><%= user.created_at.to_formatted_s :ru_datetime %></td>
-                      <td>0</td>
-                      <td><%= user.last_sign_in_at.to_formatted_s :ru_datetime %></td>
-                      <td>-</td>
-                  <% end %>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
+        <article>
+          <div class="heading">
+            <h2>Список пользователей</h2>
+          </div>
+          <div class="content">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>Логин</th>
+                <th>Регистрация</th>
+                <th>Сообщений</th>
+                <th>Последний визит</th>
+                <th>Аватар</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.created_at.to_formatted_s :ru_datetime %></td>
+                    <td>0</td>
+                    <td><%= user.last_sign_in_at.to_formatted_s :ru_datetime %></td>
+                    <td>-</td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </article>
 
-        </div>
       </div>
     </div>
   </div>

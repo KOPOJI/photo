@@ -1,4 +1,5 @@
 ru:
+  username: 'Логин'
   email: 'E-mail'
   password: 'Пароль'
   password_confirmation: 'Подтверждение пароля'

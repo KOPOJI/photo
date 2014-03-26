@@ -25,6 +25,15 @@ ru:
   Gallery: 'Портфолио'
   About: 'О нас'
   Contact: 'Контакты'
+  Profile: 'Профиль'
+
+  Name: 'Имя'
+  Interests: 'Интересы'
+  Experience: 'Опыт'
+  About me: 'Обо мне'
+  Signature: 'Подпись'
+
+  'Profile updated': 'Профиль успешно изменен'
 
   current_password: 'Текущий пароль'
 
@@ -35,6 +44,8 @@ ru:
           attributes:
             email:
               taken: 'уже занят'
+            password:
+              too_short: 'слишком короткий'
             password_confirmation:
               confirmation: 'неверно'
             confirmation_token:

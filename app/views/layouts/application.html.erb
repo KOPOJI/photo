@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
 <head>
 
   <meta charset="utf-8">
@@ -11,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!--[if lt IE 8]>
   <div style=' clear: both; text-align:center; position: relative;'>
@@ -23,7 +27,7 @@
 
   <![endif]-->
   <!--[if lt IE 9]>
-    <%= javascript_include_tag 'ie/html5','ie/css3-mediaqueries', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'ie/html5', 'ie/css3-mediaqueries', 'data-turbolinks-track' => true %>
   <![endif]-->
 
   <link href="'<%= image_path 'favicon.ico' %>'" rel="icon" type="image/x-icon"/>
@@ -34,12 +38,17 @@
 <%= render 'layouts/header' %>
 
 <%= render 'layouts/menu' %>
-<section id="content" class="container">
+<section id="content">
   <% unless flash.nil? %>
-      <div class="row">
-        <% flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, class: name %>
-        <% end -%>
+      <div class="container">
+        <div class="row">
+          <% flash.each do |type, message| %>
+              <div class="alert <%= bootstrap_class_for(type) %> fade in">
+                <button class="close" data-dismiss="alert">×</button>
+                <%= message %>
+              </div>
+          <% end %>
+        </div>
       </div>
   <% end %>
   <%= yield %>
