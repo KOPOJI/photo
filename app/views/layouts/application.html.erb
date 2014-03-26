@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <title><%= page_title(yield(:title)) %></title>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!--[if lt IE 8]>
+  <div style=' clear: both; text-align:center; position: relative;'>
+  <%= link_to 'http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode' do %>
+    <%= image_tag 'http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg', width: 820, height: 42,
+                  alt: 'You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.' %>
+  <% end %>
+  </div>
+
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag 'ie/html5','ie/css3-mediaqueries', 'data-turbolinks-track' => true %>
+  <![endif]-->
+
+  <link href="'<%= image_path 'favicon.ico' %>'" rel="icon" type="image/x-icon"/>
+
+</head>
+<body>
+
+<%= render 'layouts/header' %>
+
+<%= render 'layouts/menu' %>
+<section id="content">
+  <% unless flash.nil? %>
+      <div class="row">
+        <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: name %>
+        <% end -%>
+      </div>
+  <% end %>
+  <%= yield %>
+</section>
+
+<%= render 'layouts/footer' %>
+
+</body>
+</html>

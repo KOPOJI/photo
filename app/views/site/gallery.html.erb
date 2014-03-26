@@ -1,0 +1,52 @@
+<div class="zerogrid">
+  <div class="row">
+    <div class="main-content">
+
+      <% if @photos.nil? %>
+
+        <% if @albums.nil? or @albums.empty? %>
+          В настоящее время ни одного альбома еще не создано..
+        <% else %>
+
+          <% @albums.each do |album| %>
+            <div class="col04" style="text-align:center;">
+              <% unless album.image.nil? %>
+                <%= image_tag image_path(album.image), class: 'album_image', title: album.name, alt: album.name %>
+              <% end %>
+              <div>
+                <% url = album.album_url.nil? ? album.id : album.album_url %>
+                <%= link_to album.name, create_url('gallery', url) %>
+                <div class="description">
+                  <%= album.description %>
+                </div>
+                <small>Альбом пользователя <%= link_to album.users_id %></small>
+              </div>
+            </div>
+          <% end %>
+
+        <% end %>
+
+      <% else %>
+
+        <% if @photos.empty? %>
+          В настоящее время в данный альбом еще не были загружены фотографии..
+        <% else %>
+
+          <% @photos.each do |photo| %>
+            <div class="col04" style="text-align:center;">
+              <% unless photo.image.nil? %>
+                <%= image_tag image_path(photo.image), class: 'photo_image', title: photo.name, alt: photo.name %>
+              <% end %>
+              <p>
+                #comments..
+              </p>
+            </div>
+          <% end %>
+
+        <% end %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

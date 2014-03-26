@@ -1,0 +1,15 @@
+<nav>
+  <ul>
+    <li><%= link_to t('Home'), root_path %></li>
+    <li><%= link_to t('Blog'), create_url('blog') %></li>
+    <li><%= link_to t('Gallery'), create_url('gallery') %></li>
+    <li><%= link_to t('About'), create_url('about') %></li>
+    <li><%= link_to t('Contact'), create_url('contact') %></li>
+    <% if user_signed_in? %>
+        <li><%= link_to t('Log out'), create_url('user', 'logout'), method: :delete %></li>
+    <% else %>
+        <li><%= link_to t('Sign'), create_url('user', 'login') %></li>
+        <li><%= link_to t('Sign up'), create_url('user', 'register') %></li>
+    <% end %>
+  </ul>
+</nav>

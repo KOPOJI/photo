@@ -1,0 +1,25 @@
+<% if start %>
+    <div class="zerogrid">
+      <div class="row">
+        <div class="main-content">
+          <div class="row">
+            <div class="col-2-3">
+              <article>
+                <div class="heading">
+                  <h2><%= t header %></h2>
+                </div>
+                <div class="content">
+<% else %>
+                </div>
+                <div class="footer">
+
+                  <%= render 'users/shared/links' %>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
