@@ -1,5 +1,9 @@
 Photo::Application.routes.draw do
 
+  get 'users', to: 'users#index'
+  get 'users/:id', to: 'users#show', constraints: {id:/\d+/}
+  get 'user/profile', to: 'users#profile'
+  mount RailsAdmin::Engine => '/administration', :as => 'rails_admin'
   root 'site#index'
 
   get '/:action', to: 'site#:action', constraints: {action: /about|blog|gallery|contact/}

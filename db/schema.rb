@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309103123) do
+ActiveRecord::Schema.define(version: 20140326094633) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -19,7 +19,13 @@ ActiveRecord::Schema.define(version: 20140309103123) do
     t.text     "description"
     t.string   "image"
     t.integer  "status",      limit: 1
-    t.integer  "users_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "group",      default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,8 +35,19 @@ ActiveRecord::Schema.define(version: 20140309103123) do
     t.text     "description"
     t.string   "image"
     t.integer  "status",      limit: 1
-    t.integer  "albums_id"
-    t.integer  "users_id"
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.string   "interests"
+    t.string   "exp"
+    t.string   "about_me"
+    t.string   "signature"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140309103123) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.integer  "group_id",               default: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end

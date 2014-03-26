@@ -8,7 +8,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :image
       t.integer :status, limit: 1
 
-      t.belongs_to :users
+      t.belongs_to :user
 
       t.timestamps
     end

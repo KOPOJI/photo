@@ -1,0 +1,35 @@
+#profilePage {
+  margin: 50px auto;
+  width: 635px;
+}
+
+#leftCol {
+  float: left;
+  width: 200px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+#photo {
+  width: 200px;
+  height: 200px;
+}
+
+#photoOptions {
+  text-align: center;
+  width: 200px;
+}
+
+#info {
+  width: 400px;
+  text-align: center;
+  float: right;
+  strong {
+    display: inline-block;
+    width: 100px;
+  }
+  span {
+    display: inline-block;
+    width: 250px;
+  }
+}
