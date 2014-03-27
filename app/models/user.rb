@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates_length_of :username, minimum: 4, maximum: 20
   validates_uniqueness_of :username
 
+  acts_as_avatarable
+
   def set_group_id
     self.group_id = 4 if self.new_record?
     return true

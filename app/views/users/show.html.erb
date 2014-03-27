@@ -1,6 +1,10 @@
 <div id="profilePage">
   <div id="leftCol">
-    <div id="photo"></div>
+    <div id="photo">
+      <%= render partial: 'avatars/form',
+                 object: @user,
+                 as: :avatarable %>
+    </div>
     <div id="profileOptions">
       <%= @user.email %>
     </div>

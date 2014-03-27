@@ -8,6 +8,12 @@ GIT
       rails (>= 3.1)
       railties (>= 3.1)
 
+GIT
+  remote: http://github.com/rmagick/rmagick.git
+  revision: 79e1708c7f6792a3a90cb8cb3ffaeb74c58e092e
+  specs:
+    rmagick (2.13.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +43,12 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.16)
+    avatars_for_rails (1.1.4)
+      flashy (~> 0.0.1)
+      jquery-rails (>= 3.0.0)
+      jquery-ui-rails (>= 4.0.0)
+      paperclip (>= 2.3.4)
+      rmagick (>= 2.13.1)
     bcrypt (3.1.7)
     builder (3.1.4)
     cancan (1.6.10)
@@ -62,6 +74,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    flashy (0.0.1)
+      railties (>= 3.1.0)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     haml (4.0.5)
@@ -196,6 +210,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  avatars_for_rails
   cancan
   ckeditor
   coffee-rails (~> 4.0.0)
@@ -209,6 +224,7 @@ DEPENDENCIES
   rails (= 4.0.2)
   rails_12factor
   rails_admin
+  rmagick (= 2.13.2)!
   sass-rails (~> 4.0.0)
   sdoc
   seed_dump

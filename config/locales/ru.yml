@@ -13,6 +13,8 @@ ru:
   About me: 'Обо мне'
   Signature: 'Подпись'
 
+  avatar:
+    crop_submit: 'Обрезать'
   'Profile updated': 'Профиль успешно изменен'
 
   current_password: 'Текущий пароль'
