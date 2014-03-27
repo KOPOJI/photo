@@ -7,6 +7,9 @@
     <li><%= link_to t('Пользователи'), create_url('users') %></li>
     <% if user_signed_in? %>
         <li><%= link_to t('Profile'), create_url('user', 'profile') %></li>
+        <% if can? :access, :rails_admin %>
+            <li><%= link_to t('Administration'), '/administration/' %></li>
+        <% end %>
         <li><%= link_to t('Log out'), create_url('user', 'logout'), method: :delete %></li>
     <% else %>
         <li><%= link_to t('Sign'), create_url('user', 'login') %></li>

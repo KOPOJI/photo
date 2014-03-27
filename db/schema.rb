@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140326094633) do
     t.string   "album_url"
     t.text     "description"
     t.string   "image"
-    t.integer  "status",      limit: 1
+    t.boolean  "status",      default: true
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140326094633) do
     t.string   "name"
     t.text     "description"
     t.string   "image"
-    t.integer  "status",      limit: 1
+    t.boolean  "status",      default: true
     t.integer  "album_id"
     t.integer  "user_id"
     t.datetime "created_at"

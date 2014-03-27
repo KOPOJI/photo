@@ -23,7 +23,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: photo_test
+  database: photo
   pool: 5
   username: root
   password:

@@ -5,7 +5,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :image
-      t.integer :status, limit: 1
+      t.boolean :status, default: true
 
       t.belongs_to :album
       t.belongs_to :user

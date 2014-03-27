@@ -10,7 +10,7 @@
 
           <% @albums.each do |album| %>
             <div class="col04" style="text-align:center;">
-              <% unless album.image.nil? %>
+              <% unless album.image.nil? or album.image.empty? %>
                 <%= image_tag image_path(album.image), class: 'album_image', title: album.name, alt: album.name %>
               <% end %>
               <div>
@@ -19,7 +19,7 @@
                 <div class="description">
                   <%= album.description %>
                 </div>
-                <small>Альбом пользователя <%= link_to album.users_id %></small>
+                <small>Альбом пользователя <%= link_to album.user.username, create_url('user', album.user.id) %></small>
               </div>
             </div>
           <% end %>
