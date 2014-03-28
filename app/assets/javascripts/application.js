@@ -15,5 +15,4 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require avatars_for_rails
 //= require_tree .

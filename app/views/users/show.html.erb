@@ -1,12 +1,16 @@
 <div id="profilePage">
   <div id="leftCol">
     <div id="photo">
-      <%= render partial: 'avatars/form',
-                 object: @user,
-                 as: :avatarable %>
+      <%= image_tag(@user.profile.avatar_url) if @user.profile.avatar? %>
+      <% if current_user? @user %>
+        <%= simple_form_for @user.profile, html: {multipart: true} do |f| %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= f.submit 'Upload', class: 'button' %>
+        <% end %>
+      <% end %>
     </div>
     <div id="profileOptions">
-      <%= @user.email %>
     </div>
   </div>
   <div id="info">
