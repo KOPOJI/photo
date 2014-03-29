@@ -20,15 +20,6 @@ class UsersController < ApplicationController
       flash.now[:notice] = I18n.t 'Profile updated'
     end
     render action: :show
-    #respond_to do |format|
-    #  if @user.update params[:user]
-    #    format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #    format.js {}
-    #    format.json { render json: @user, status: :created, location: @user }
-    #  else
-    #    format.html { render action: :show }
-    #    format.json { render json: @user.errors, status: :unprocessable_entity }
-    #  end
 
   end
 
