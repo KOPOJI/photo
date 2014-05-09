@@ -13,3 +13,13 @@
 #content {
     min-height: 350px;
 }
+body {
+    background: url('bg/500456691.jpg')!important;
+    background-size: 100% 100% !important;
+}
+header {
+    background: none!important;
+}
+header #logo {
+    top: 10px!important;
+}

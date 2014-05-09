@@ -56,6 +56,8 @@ gem 'simple_form'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'nokogiri', '1.5.5'
+
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment

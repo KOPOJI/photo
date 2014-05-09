@@ -1,4 +1,5 @@
 class SiteController < ApplicationController
+
   def index
   end
 
@@ -15,5 +16,8 @@ class SiteController < ApplicationController
   end
 
   def contact
+    unless user_signed_in?
+      authorize! :contact, @user
+    end
   end
 end

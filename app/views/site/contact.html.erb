@@ -1,2 +1,19 @@
-<h1>Site#about</h1>
-<p>Find me in app/views/site/about.html.erb</p>
+<div class="zerogrid">
+  <div class="row">
+    <div class="main-content" style="width:650px;margin: 10px auto">
+      <div style="display: inline-block">
+        <br><br>
+       Email: <%= mail_to 'anna-salnikova87@mail.ru' %>
+       <br>
+       <br>
+       VKontakte: <%= link_to 'vk.com/annasalnikova', 'http://vk.com/annasalnikova', target: '_blank' %>
+       <br>
+       <br>
+       Сайт: <%= link_to 'Фото для друзей', root_path %>
+      </div>
+      <div style="display: inline-block;float: right">
+        <%= image_tag image_path('avatar.png'), width: '300px' %>
+      </div>
+    </div>
+  </div>
+</div>

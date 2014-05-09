@@ -47,8 +47,7 @@ gem 'devise'
 gem 'cancan'
 
 gem 'carrierwave'
-
-gem 'rmagick', '2.13.2', git: 'http://github.com/rmagick/rmagick.git'
+gem 'rmagick'
 
 gem 'simple_form'
 # Use ActiveModel has_secure_password

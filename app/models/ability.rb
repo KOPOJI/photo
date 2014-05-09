@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     if user && user.moderator?
       can :read, :all                   # allow everyone to read everything
+
       can :manage, :all if user.admin?
       can :edit, [Album, Image, Profile]
       can :access, :rails_admin       # only allow admin users to access Rails Admin
