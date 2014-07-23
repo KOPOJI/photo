@@ -4,52 +4,38 @@
 
       <% if @photos.nil? %>
 
-        <% if @albums.nil? or @albums.empty? %>
-          В настоящее время ни одного альбома еще не создано..
-        <% else %>
 
-          <% @albums.each do |album| %>
-                  <article>
-                    <div class="heading">
-                      <h2>
-                        <% url = album.album_url.nil? ? album.id : album.album_url %>
-                        <%= link_to album.name, create_url('gallery', url) %>
-                      </h2>
-                      <p class="info">>>> <%= t 'Posted by' %> <b><%= link_to album.user.username, create_url('user', album.user.id) %></b> - <%= album.created_at %> - 0 Comments</p>
-                    </div>
-                    <div class="content">
-                      <% unless album.image.nil? or album.image.empty? %>
-                          <%= image_tag image_path(album.image), class: 'album_image', title: album.name, alt: album.name %>
-                      <% end %>
-                      <p><%= album.description %></p>
-                      <p>comments....</p>
-                    </div>
-                    <div class="footer">
-                      <p class="more"><%= link_to 'Подробнее', create_url('gallery', url), class: 'button' %></p>
-                    </div>
-                  </article>
-          <% end %>
-
-        <% end %>
 
       <% else %>
 
-        <% if @photos.empty? %>
-          В настоящее время в данный альбом еще не были загружены фотографии..
-        <% else %>
+          <% if @photos.empty? %>
+              В настоящее время в данный альбом еще не были загружены фотографии..
+          <% else %>
 
-          <% @photos.each do |photo| %>
-            <div class="col04" style="text-align:center;">
-              <% unless photo.image.nil? %>
-                <%= image_tag image_path(photo.image), class: 'photo_image', title: photo.name, alt: photo.name %>
+              <% @photos.each do |photo| %>
+                  <div class="col04" style="text-align:center;">
+                    <% unless photo.image.nil? %>
+                        <%= link_to "#{photo.image}", rel: 'prettyPhoto[gallery]' do %>
+                            <%= image_tag path_to_image(photo.image), class: 'photo_image', title: photo.name, alt: photo.name %>
+                        <% end %>
+                        <%= link_to t('Destroy'), create_url('gallery', photo.album.album_url, photo.id), method: :delete, data: {confirm: t('Are you sure?')}, class: 'link' %>
+                        <% if false #photo.comments.present? %>
+                            <p>
+                              #comments..
+                            </p>
+                        <% end %>
+                    <% end %>
+
+                  </div>
               <% end %>
-              <p>
-                #comments..
-              </p>
-            </div>
+
           <% end %>
 
-        <% end %>
+          <% if @album.user == current_user %>
+              <div class="clearfix"></div>
+              <hr>
+              <%= link_to t('upload_image'), new_image_path %>
+          <% end %>
 
       <% end %>
 

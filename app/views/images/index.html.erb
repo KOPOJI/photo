@@ -1,0 +1,31 @@
+<div class="zerogrid">
+  <div class="row">
+    <div class="main-content">
+      <h1>Listing images</h1>
+
+      <table>
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @images.each do |image| %>
+            <tr>
+              <td><%= link_to t('Show'), create_url(path_to_image image)%></td>
+              <td><%= link_to t('Edit'), create_url(edit_image_path image) %></td>
+              <td><%= link_to t('Destroy'), image, method: :delete, data: {confirm: t('Are you sure?')} %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to t('upload_image'), create_url(new_path_to_image) %>
+    </div>
+  </div>
+</div>

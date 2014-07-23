@@ -36,6 +36,14 @@ gem 'paperclip', '3.4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -48,6 +56,8 @@ gem 'cancan'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'prettyphoto-rails'
 
 gem 'simple_form'
 # Use ActiveModel has_secure_password

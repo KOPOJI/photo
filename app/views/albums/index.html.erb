@@ -1,0 +1,41 @@
+<div class="zerogrid">
+  <div class="row">
+    <div class="main-content">
+      <% if @albums.nil? or @albums.empty? %>
+          В настоящее время ни одного альбома еще не создано..
+      <% else %>
+
+          <% @albums.each do |album| %>
+              <article>
+                <div class="heading">
+                  <h2>
+                    <% url = album.album_url.nil? ? album.id : album.album_url %>
+                    <%= link_to album.name, create_url('gallery', url) %>
+                  </h2>
+
+                  <p class="info">>>> <%= t 'Posted by' %>
+                    <b><%= link_to album.user.username, create_url('user', album.user.id) %></b>
+                    - <%= album.created_at %> - 0 Comments</p>
+                </div>
+                <div class="content">
+                  <% unless album.image.nil? or album.image.empty? %>
+                      <%= image_tag path_to_image(album.image), class: 'album_image', title: album.name, alt: album.name %>
+                  <% end %>
+                  <p><%= album.description %></p>
+
+                  <p>comments....</p>
+                </div>
+                <div class="footer">
+                  <p class="more"><%= link_to 'Подробнее', create_url('gallery', url), class: 'button' %></p>
+                </div>
+              </article>
+          <% end %>
+
+      <% end %>
+
+      <br>
+
+      <%= link_to 'New Album', create_url(new_album_path) if user_signed_in? %>
+    </div>
+  </div>
+</div>

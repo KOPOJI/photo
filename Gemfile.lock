@@ -39,11 +39,19 @@ GEM
     bcrypt (3.1.7)
     builder (3.1.4)
     cancan (1.6.10)
+    capybara (2.2.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    childprocess (0.5.3)
+      ffi (~> 1.0, >= 1.0.11)
     ckeditor (4.0.11)
       mime-types
       orm_adapter (~> 0.5.0)
@@ -64,8 +72,10 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    ffi (1.9.3)
     font-awesome-rails (4.0.3.2)
       railties (>= 3.2, < 5.0)
     haml (4.0.5)
@@ -106,6 +116,11 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.4)
+    prettyphoto-rails (0.2.1)
+      jquery-rails
+      rails (>= 3.1)
+      sass-rails
+      uglifier
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -150,6 +165,23 @@ GEM
       json (~> 1.4)
     remotipart (1.2.1)
     rmagick (2.13.2)
+    rspec-core (3.0.0.rc1)
+      rspec-support (= 3.0.0.rc1)
+    rspec-expectations (3.0.0.rc1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.0.0.rc1)
+    rspec-mocks (3.0.0.rc1)
+      rspec-support (= 3.0.0.rc1)
+    rspec-rails (3.0.0.rc1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.0.0.rc1)
+      rspec-expectations (= 3.0.0.rc1)
+      rspec-mocks (= 3.0.0.rc1)
+      rspec-support (= 3.0.0.rc1)
+    rspec-support (3.0.0.rc1)
+    rubyzip (1.1.3)
     safe_yaml (1.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -163,6 +195,11 @@ GEM
     seed_dump (3.1.0)
       activerecord
       activesupport
+    selenium-webdriver (2.41.0)
+      childprocess (>= 0.5.0)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0.4)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -193,12 +230,16 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket (1.0.7)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cancan
+  capybara
   carrierwave
   ckeditor
   coffee-rails (~> 4.0.0)
@@ -210,13 +251,16 @@ DEPENDENCIES
   nokogiri (= 1.5.5)
   paperclip (= 3.4.2)
   pg
+  prettyphoto-rails
   rails (= 4.0.2)
   rails_12factor
   rails_admin
   rmagick
+  rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
   sdoc
   seed_dump
+  selenium-webdriver
   simple_form
   turbolinks
   twitter-bootstrap-rails!

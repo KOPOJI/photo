@@ -6,7 +6,7 @@ class SiteController < ApplicationController
   def gallery
     if params[:album].present?
       @album = Album.find_by_id_and_status(params[:album], true) || Album.find_by_album_url_and_status(params[:album], true)
-      @photos = Image.find_all_by_album_id_and_status @album.id, true
+      @photos = Image.order(id: :desc).find_all_by_album_id_and_status(@album.id, true)
     else
       @albums = Album.find_all_by_status true
     end
@@ -16,8 +16,6 @@ class SiteController < ApplicationController
   end
 
   def contact
-    unless user_signed_in?
-      authorize! :contact, @user
-    end
+    authorize! :contact, @user unless user_signed_in?
   end
 end

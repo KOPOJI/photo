@@ -1,5 +1,11 @@
 Photo::Application.routes.draw do
 
+  resources :albums, path: '/gallery/'
+
+  resources :images, path: '/gallery/:album/image', constraints: {album: /[-_a-z\d]+/i}, only: [:new, :create, :delete]
+  delete '/gallery/:album/:id', to: 'images#destroy', constraints: {album: /[-_a-z\d]+/i}
+  #resources :images
+
   root 'site#index'
 
   get 'users', to: 'users#index'
@@ -9,6 +15,7 @@ Photo::Application.routes.draw do
 
   get '/:action', to: 'site#:action', constraints: {action: /blog|gallery|contact/}
   get '/gallery/:album', to: 'site#gallery', constraints: {album: /[-_a-z\d]+/i}
+
 
   devise_for :users, path: 'user', path_names: {
       sign_in: 'login',

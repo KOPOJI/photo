@@ -8,30 +8,32 @@
           </div>
           <div class="content">
             <% if @users.empty? %>
-              В настоящее время ни одного пользователя не зарегистрировано..
+                В настоящее время ни одного пользователя не зарегистрировано..
             <% else %>
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>Логин</th>
-                  <th>Регистрация</th>
-                  <th>Сообщений</th>
-                  <th>Последний визит</th>
-                  <th>Аватар</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @users.each do |user| %>
+                <table class="table table-hover">
+                  <thead>
                   <tr>
-                    <td><%= user.username %></td>
-                    <td><%= user.created_at.to_formatted_s :ru_datetime %></td>
-                    <td>0</td>
-                    <td><%= user.last_sign_in_at.to_formatted_s :ru_datetime %></td>
-                    <td><%= image_tag user.profile.avatar_url, class: 'photo-icon' if user.profile.avatar? %></td>
+                    <th>Логин</th>
+                    <th>Регистрация</th>
+                    <th>Сообщений</th>
+                    <th>Последний визит</th>
+                    <th>Аватар</th>
                   </tr>
-                <% end %>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                  <% @users.each do |user| %>
+                      <tr>
+                        <td><%= user_status_image user %>
+                          <b><%= link_to user.username, create_url('user', user.id) %></b>
+                        </td>
+                        <td><%= user.created_at.to_formatted_s :ru_datetime %></td>
+                        <td><%= Image.where(user_id: user.id).count %></td>
+                        <td><%= user.last_sign_in_at.to_formatted_s :ru_datetime %></td>
+                        <td style="text-align:center"><%= user.profile.avatar? ? image_tag(user.profile.avatar_url, class: 'photo-icon') : ' - ' %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
             <% end %>
           </div>
         </article>

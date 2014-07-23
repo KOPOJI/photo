@@ -21,7 +21,19 @@
     }
   }
 }
+.main-content .row article .content table.table tr td {
+  padding: 3px;
+  line-height: 35px;
+  img {
+    border: none;
+  }
+}
 .notice {
   text-align: center;
   padding: 5px;
+}
+#slider {
+  img {
+    height: 400px;
+  }
 }

@@ -20,7 +20,7 @@
               <strong><%= t 'Name' %>:</strong>
               <span><%= @user.profile.name %></span>
               <%= link_to '#', class: 'edit_info' do %>
-                  <%= image_tag image_path('userfield_edit.gif') %>
+                  <%= image_tag path_to_image('userfield_edit.gif') %>
               <% end %>
               <%= f.text_field :name, class: 'hidden' %>
             </p>
@@ -29,7 +29,7 @@
               <strong><%= t 'Interests' %>:</strong>
               <span><%= @user.profile.interests %></span>
               <%= link_to '#', class: 'edit_info' do %>
-                  <%= image_tag image_path('userfield_edit.gif') %>
+                  <%= image_tag path_to_image('userfield_edit.gif') %>
               <% end %>
               <%= f.text_field :interests, class: 'hidden' %>
             </p>
@@ -38,7 +38,7 @@
               <strong><%= t 'Experience' %>:</strong>
               <span><%= @user.profile.exp %></span>
               <%= link_to '#', class: 'edit_info' do %>
-                  <%= image_tag image_path('userfield_edit.gif') %>
+                  <%= image_tag path_to_image('userfield_edit.gif') %>
               <% end %>
               <%= f.text_field :exp, class: 'hidden' %>
             </p>
@@ -47,7 +47,7 @@
               <strong><%= t 'About me' %>:</strong>
               <span><%= @user.profile.about_me %></span>
               <%= link_to '#', class: 'edit_info' do %>
-                  <%= image_tag image_path('userfield_edit.gif') %>
+                  <%= image_tag path_to_image('userfield_edit.gif') %>
               <% end %>
               <%= f.text_field :about_me, class: 'hidden' %>
             </p>
@@ -56,7 +56,7 @@
               <strong><%= t 'Signature' %>:</strong>
               <span><%= @user.profile.signature %></span>
               <%= link_to '#', class: 'edit_info' do %>
-                  <%= image_tag image_path('userfield_edit.gif') %>
+                  <%= image_tag path_to_image('userfield_edit.gif') %>
               <% end %>
               <%= f.text_field :signature, class: 'hidden' %>
             </p>
